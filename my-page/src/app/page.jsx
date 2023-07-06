@@ -1,9 +1,14 @@
+'use client'
+
+import Navbar from "@/components/Navbar/NavBar";
+
 export default function Home() {
   return (
-    <main className="bg-gray-100 min-h-screen p-4">
+    <main className="dark:bg-black bg-gray-100 min-h-screen p-4">
+      <Navbar />
       <header className="text-center">
-        <h1 className="text-4xl font-bold text-gray-800 mb-4">Meu Portfólio</h1>
-        <p className="text-xl text-gray-600">Bem-vindo ao meu portfólio de projetos.</p>
+        <h1 className="dark:text-white text-4xl font-bold text-gray-800 mb-4">Meu Portfólio</h1>
+        <p className="dark:text-slate-400 text-xl text-gray-600">Bem-vindo ao meu portfólio de projetos.</p>
       </header>
 
       <section className="mt-8">
