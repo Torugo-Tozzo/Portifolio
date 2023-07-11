@@ -1,7 +1,8 @@
-"use client";
-import { useState, useEffect, useRef } from "react";
-import Links from "./Links";
-import DarkButton from "./DarkButton";
+import React, { useState, useEffect, useRef } from 'react';
+import { HiOutlineMenu } from 'react-icons/hi';
+import { HiX } from 'react-icons/hi';
+import Links from './Links';
+import DarkButton from './DarkButton';
 
 const Navbar = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -14,10 +15,10 @@ const Navbar = () => {
     };
 
     handleResize();
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -28,10 +29,10 @@ const Navbar = () => {
       }
     };
 
-    document.addEventListener("click", handleOutsideClick);
+    document.addEventListener('mousedown', handleOutsideClick);
 
     return () => {
-      document.removeEventListener("click", handleOutsideClick);
+      document.removeEventListener('mousedown', handleOutsideClick);
     };
   }, []);
 
@@ -44,27 +45,26 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-          <DarkButton />
+            <DarkButton />
           </div>
           <div className="relative" ref={menuRef}>
-  <button
-    type="button"
-    className="focus:outline-none w-8 h-8"
-    onClick={handleMenuToggle}
-  >
-    <img
-      src="/arrow.png"
-      alt="Foto"
-      className="h-8 w-8 rounded-full"
-    />
-  </button>
-  {isMenuOpen && (
-    <div className="absolute top-12 right-0 bg-white w-48 py-2 rounded-md shadow">
-      <Links />
-    </div>
-  )}
-</div>
-
+            <button
+              type="button"
+              className="focus:outline-none w-8 h-8"
+              onClick={handleMenuToggle}
+            >
+              {isMenuOpen ? (
+                <HiX className="dark:text-white h-8 w-8 text-gray-800" />
+              ) : (
+                <HiOutlineMenu className="dark:text-white h-8 w-8 text-gray-800" />
+              )}
+            </button>
+            {isMenuOpen && (
+              <div className="absolute top-12 right-0 bg-white w-48 py-2 rounded-md shadow z-10">
+                <Links />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </nav>
