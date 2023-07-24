@@ -9,7 +9,7 @@ const Maps = () => {
     <iframe
       width="450"
       height="250"
-      frameBorder="0"
+      className="dark:bg-black bg-gray-100"
       style={{ border: '0' }}
       referrerPolicy="no-referrer-when-downgrade"
       src={`https://www.google.com/maps/embed/v1/search?key=${mapKey}&q=Igreja+matriz+de+Areado`}

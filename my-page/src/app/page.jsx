@@ -1,7 +1,7 @@
 "use client";
 
-import Navbar from "../components/Navbar/NavBar";
-import Maps from "../components/About/Maps";
+import Navbar from "./NavBar";
+import Maps from "./Maps";
 
 export default function Home() {
   return (
