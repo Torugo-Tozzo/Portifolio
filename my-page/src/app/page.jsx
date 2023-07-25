@@ -3,7 +3,7 @@
 import Navbar from "./NavBar";
 import Maps from "./Maps";
 import Tetrahedron from "./Tetrahedron";
-import Cubos from "./a";
+import Points from "./Points";
 
 export default function Home() {
   return (
@@ -37,7 +37,15 @@ export default function Home() {
       <section id="contato-section">
         <div>
           <h1 className="text-white">contato</h1>
-          <Cubos />
+          <Points />
+        </div>
+      </section>
+
+      <section>
+        <div>
+        
+        
+      
         </div>
       </section>
     </main>

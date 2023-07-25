@@ -5,6 +5,20 @@ const Tetrahedron = () => {
   const sceneRef = useRef();
   const mouseX = useRef(0);
   const mouseY = useRef(0);
+  const textureRotation = useRef(0);
+
+  class DegRadHelper {
+    constructor(obj, prop) {
+      this.obj = obj;
+      this.prop = prop;
+    }
+    get value() {
+      return THREE.MathUtils.radToDeg(this.obj[this.prop]);
+    }
+    set value(v) {
+      this.obj[this.prop] = THREE.MathUtils.degToRad(v);
+    }
+  }
 
   useEffect(() => {
     const scene = new THREE.Scene();
@@ -31,7 +45,15 @@ const Tetrahedron = () => {
     geometry.setFromPoints(vertices);
     geometry.setIndex(indices);
 
-    const material = new THREE.MeshBasicMaterial({ color: 0xffffff });
+    // Load the texture
+    const loader = new THREE.TextureLoader();
+    const texture = loader.load('https://threejs.org/manual/examples/resources/images/wall.jpg');
+    const textureRotationHelper = new DegRadHelper(texture, 'rotation');
+    textureRotationHelper.rotation = textureRotation.current;
+
+    // Create the material with the texture
+    const material = new THREE.MeshBasicMaterial({ map: texture });
+
     const tetrahedron = new THREE.Mesh(geometry, material);
     scene.add(tetrahedron);
 
@@ -50,12 +72,22 @@ const Tetrahedron = () => {
       tetrahedron.rotation.x = mouseY.current * 1.5;
       tetrahedron.rotation.y = mouseX.current * 1.5;
 
+      textureRotation.current += 0.01;
+      textureRotationHelper.rotation = 180;
+
       renderer.render(scene, camera);
     };
 
     animate();
 
-   
+    return () => {
+      scene.remove(tetrahedron);
+      geometry.dispose();
+      material.dispose();
+      texture.dispose();
+
+      window.removeEventListener('mousemove', handleMouseMove);
+    };
   }, []);
 
   return <div ref={sceneRef} />;

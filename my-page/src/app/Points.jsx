@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
-const Cubos = () => {
+const Points = () => {
   const canvasRef = useRef();
 
   useEffect(() => {
@@ -23,14 +23,18 @@ const Cubos = () => {
     light.position.set(-1, 2, 4);
     scene.add(light);
 
-    const boxWidth = 1;
-    const boxHeight = 6;
-    const boxDepth = 6;
+    const boxWidth = 0.5;
+    const boxHeight = 12;
+    const boxDepth = 12;
     const geometry = new THREE.SphereGeometry(boxWidth, boxHeight, boxDepth);
 
     function makeInstance(geometry, color, x) {
-      const material = new THREE.MeshPhongMaterial({ color });
-      const cube = new THREE.Mesh(geometry, material);
+      const material = new THREE.PointsMaterial({
+        color: 'white',
+        sizeAttenuation: false,
+        size: 3,     // in world units
+    });
+      const cube = new THREE.Points(geometry, material);
       scene.add(cube);
       cube.position.x = x;
       return cube;
@@ -38,8 +42,8 @@ const Cubos = () => {
 
     const cubes = [
       makeInstance(geometry, 0x44aa88, 0),
-      makeInstance(geometry, 0x8844aa, -2),
-      makeInstance(geometry, 0xaa8844, 2),
+      makeInstance(geometry, 0x8844aa, -1),
+      makeInstance(geometry, 0xaa8844, 1),
     ];
 
     function render() {
@@ -68,4 +72,4 @@ const Cubos = () => {
   return <div ref={canvasRef} />;
 };
 
-export default Cubos;
+export default Points;
