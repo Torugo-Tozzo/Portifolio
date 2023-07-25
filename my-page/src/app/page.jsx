@@ -2,6 +2,8 @@
 
 import Navbar from "./NavBar";
 import Maps from "./Maps";
+import Tetrahedron from "./Tetrahedron";
+import Cubos from "./a";
 
 export default function Home() {
   return (
@@ -28,12 +30,14 @@ export default function Home() {
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Projetos</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {/* Aqui você pode adicionar os cards ou componentes dos projetos */}
+        <Tetrahedron />
         </div>
       </section>
 
       <section id="contato-section">
         <div>
           <h1 className="text-white">contato</h1>
+          <Cubos />
         </div>
       </section>
     </main>
