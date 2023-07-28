@@ -1,39 +1,38 @@
-import React, { useEffect, useRef } from 'react';
-import * as THREE from 'three';
+import React, { useEffect, useRef } from "react";
+import * as THREE from "three";
 
 const Points = () => {
   const canvasRef = useRef();
+  const mouseX = useRef(0);
+  const mouseY = useRef(0);
 
   useEffect(() => {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-    const renderer = new THREE.WebGLRenderer({ antialias: true });
+    const camera = new THREE.PerspectiveCamera(
+      80,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // Set alpha to true for transparency
     renderer.setSize(window.innerWidth, window.innerHeight);
     canvasRef.current.appendChild(renderer.domElement);
 
-    const fov = 75;
-    const aspect = window.innerWidth / window.innerHeight;
-    const near = 0.1;
-    const far = 5;
     camera.position.z = 2;
 
-    const color = 0xFFFFFF;
-    const intensity = 1;
-    const light = new THREE.DirectionalLight(color, intensity);
-    light.position.set(-1, 2, 4);
-    scene.add(light);
+    // Set the clear color of the renderer to transparent
+    renderer.setClearColor(0x000000, 0);
 
-    const boxWidth = 0.5;
-    const boxHeight = 12;
-    const boxDepth = 12;
-    const geometry = new THREE.SphereGeometry(boxWidth, boxHeight, boxDepth);
+    const geometry = new THREE.DodecahedronGeometry(1, 5);
 
     function makeInstance(geometry, color, x) {
       const material = new THREE.PointsMaterial({
-        color: 'white',
+        color: color,
         sizeAttenuation: false,
-        size: 3,     // in world units
-    });
+        size: 3, // in world units
+        transparent: true, // Enable transparency
+        opacity: 1, // Set opacity value (0.0 to 1.0)
+      });
       const cube = new THREE.Points(geometry, material);
       scene.add(cube);
       cube.position.x = x;
@@ -41,35 +40,48 @@ const Points = () => {
     }
 
     const cubes = [
-      makeInstance(geometry, 0x44aa88, 0),
-      makeInstance(geometry, 0x8844aa, -1),
-      makeInstance(geometry, 0xaa8844, 1),
+      makeInstance(geometry, 0xf3f4f6, 0.01),
+      makeInstance(geometry, 0x000000, -0.01),
     ];
 
     function render() {
       renderer.render(scene, camera);
     }
 
+    const handleMouseMove = (event) => {
+      mouseX.current = (event.clientX / window.innerWidth) * 2 - 1;
+      mouseY.current = -(event.clientY / window.innerHeight) * 2 + 1;
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
     function animate() {
       requestAnimationFrame(animate);
 
-      const time = Date.now() * 0.001;
-      cubes.forEach((cube, ndx) => {
-        const speed = 1 + ndx * 0.1;
-        const rot = time * speed;
-        cube.rotation.x = rot;
-        cube.rotation.y = rot;
+      cubes.forEach((cube) => {
+        cube.rotation.x = mouseY.current * 1.5;
+        cube.rotation.y = mouseX.current * 1.5;
       });
 
       render();
     }
 
     animate();
-
-    
   }, []);
 
-  return <div ref={canvasRef} />;
+  return (
+    <div
+      ref={canvasRef}
+      id="background" // Set the ID for the canvas
+      style={{
+        position: "relative",
+        height: "48rem",
+        width: "50rem",
+        top: "-4rem",
+        zIndex: 1,
+      }}
+    />
+  );
 };
 
 export default Points;
