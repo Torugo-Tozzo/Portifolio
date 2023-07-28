@@ -10,3 +10,20 @@
       box-shadow: theme('boxShadow.xl');
     }
 }
+
+/* CSS para o cursor personalizado */
+.custom-cursor {
+  position: fixed;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #000;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: color 0.3s;
+}
+
+.dark .custom-cursor {
+  color: white;
+}

@@ -3,11 +3,13 @@ import { BsChevronCompactDown } from "react-icons/bs";
 import Navbar from "./NavBar";
 import Maps from "./Maps";
 import Points from "./Points";
+import CustomCursor from "./CustomCursor";
 
 export default function Home() {
   return (
     <div>
       <main className="dark:bg-black bg-gray-100 min-h-screen p-4">
+      <CustomCursor />
         <header className="text-center">
           <Navbar />
           <h1 className="dark:text-white text-4xl font-bold text-gray-800 mb-0">
@@ -28,7 +30,7 @@ export default function Home() {
               src="/Eu.png"
             />
 
-            <div class="card rounded-none"></div>
+            <div className="card rounded-none"></div>
 
             <div>
               <Maps className="rounded-full py-2" />
