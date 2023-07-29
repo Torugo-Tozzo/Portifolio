@@ -77,7 +77,7 @@ const Points = () => {
         position: "relative",
         height: "48rem",
         width: "50rem",
-        top: "-4rem",
+        top: "-3.5rem",
         zIndex: 1,
       }}
     />
