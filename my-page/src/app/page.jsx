@@ -21,6 +21,12 @@ export default function Home() {
         abstract: "Um buscador de documentos para matéria de introdução ao Elastic Search Feito em colaboração com @Lucas Justino",
         link:"https://github.com/Torugo-Tozzo/Uaihoo",
       },
+      {
+        imageSrc:"ASCII.png",
+        title:"Imagem para Texto Ascii",
+        abstract:"Trabalho da matéria de processamento de imagem que consistia em transformar imagens em formato .pgm para ASCII",
+        link:"https://github.com/Torugo-Tozzo/Trabalho1_PDI",
+      },
       // Adicione mais projetos aqui conforme necessário
     ];
 
