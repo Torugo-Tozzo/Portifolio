@@ -8,7 +8,7 @@ const Card = ({ imageSrc, title, abstract, link }) => {
         <FiGithub size={24} className="mr-2 dark:text-white" />
         <h3 className="text-lg font-bold dark:text-white">{title}</h3>
       </div>
-      <img src={imageSrc} alt={title} className="w-full h-48 object-cover rounded" />
+      <a href={link}><img src={imageSrc} alt={title} className="w-full h-48 object-cover rounded" /></a>
       <p className="text-gray-600 dark:text-gray-400 mt-4">{abstract}</p>
       <a className="underline text-blue-500" href={link}>{link}</a>
     </div>

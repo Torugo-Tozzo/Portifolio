@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { ClimbingBoxLoader } from "react-spinners";
 
 const WeatherCard = () => {
@@ -6,14 +6,20 @@ const WeatherCard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const apiKey = "YOUR_OPENWEATHER_API_KEY";
+    const WeatherKey = process.env.WEATHER_KEY;//aqui a key
     const city = "Alfenas";
-    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WeatherKey}&units=metric`;
 
-    // Simulate an API delay for demonstration purposes (remove this in the final code)
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setWeatherData(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error("Error fetching weather data:", error);
+        setLoading(false);
+      });
   }, []);
 
   if (loading) {
@@ -27,22 +33,30 @@ const WeatherCard = () => {
   }
 
   if (!weatherData) {
-    return (
-      <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "6rem" }}
-      >
-        <ClimbingBoxLoader size={40} color={"white"} />
-      </div>
-    );
+    return <div>Failed to fetch weather data.</div>;
   }
 
   const temperature = weatherData.main?.temp
     ? Math.round(weatherData.main.temp)
     : null;
+  const weatherIcon = weatherData.weather && weatherData.weather[0]?.icon;
+  const humidity = weatherData.main?.humidity;
 
   return (
     <div className="bg-white dark:bg-gray-800 w-full sm:w-80 h-80 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-110 flex flex-col items-center justify-center">
-      <p className="dark:text-white text-2xl font-bold">{temperature}°C</p>
+      {temperature && (
+        <>
+          <h3 className="dark:text-white text-2xl font-bold">{weatherData.name}</h3>
+          <img
+            src={`http://openweathermap.org/img/w/${weatherIcon}.png`}
+            alt="Weather Icon"
+          />
+          <p className="dark:text-white">{weatherData.weather[0].description}</p>
+          <p className="dark:text-white text-2xl font-bold">{temperature}°C</p>
+          <p className="dark:text-white">Humidade: {humidity}%</p>
+          <p className="dark:text-white">Powered by OpenweatherAPI</p>
+        </>
+      )}
     </div>
   );
 };

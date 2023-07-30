@@ -1,10 +1,7 @@
-"use client";
-
 import { useState, useEffect } from "react";
 
 const Maps = () => {
   const mapKey = process.env.MAP_KEY;
-
   return (
     <div>
       <iframe
