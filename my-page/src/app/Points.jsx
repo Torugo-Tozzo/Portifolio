@@ -7,15 +7,13 @@ const Points = () => {
   const mouseY = useRef(0);
 
   useEffect(() => {
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(
-      80,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
+    const camera = new THREE.PerspectiveCamera(80, width / height, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true }); // Set alpha to true for transparency
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, height);
     canvasRef.current.appendChild(renderer.domElement);
 
     camera.position.z = 2;
@@ -30,8 +28,8 @@ const Points = () => {
         color: color,
         sizeAttenuation: false,
         size: 3, // in world units
-        transparent: true, // Enable transparency
-        opacity: 1, // Set opacity value (0.0 to 1.0)
+        transparent: false, // Enable transparency
+        opacity: 0.5, // Set opacity value (0.0 to 1.0)
       });
       const cube = new THREE.Points(geometry, material);
       scene.add(cube);
@@ -48,11 +46,21 @@ const Points = () => {
       renderer.render(scene, camera);
     }
 
-    const handleMouseMove = (event) => {
-      mouseX.current = (event.clientX / window.innerWidth) * 2 - 1;
-      mouseY.current = -(event.clientY / window.innerHeight) * 2 + 1;
+    const handleResize = () => {
+      width = window.innerWidth;
+      height = window.innerHeight;
+
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
     };
 
+    const handleMouseMove = (event) => {
+      mouseX.current = (event.clientX / width) * 2 - 1;
+      mouseY.current = -(event.clientY / height) * 2 + 1;
+    };
+
+    window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove);
 
     function animate() {
@@ -67,6 +75,11 @@ const Points = () => {
     }
 
     animate();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
 
   return (
@@ -75,8 +88,8 @@ const Points = () => {
       id="background" // Set the ID for the canvas
       style={{
         position: "relative",
-        height: "48rem",
-        width: "50rem",
+        width: "100vh",
+        height: "78vh",
         top: "-3.5rem",
         zIndex: 1,
       }}

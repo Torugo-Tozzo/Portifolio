@@ -6,7 +6,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
-      <body className={`white-bg ${inter.className} dark:bg-black`}>{children}</body>
+      <body className={`overflow-x-hidden ${inter.className} `}>{children}</body>
     </html>
   )
 }
