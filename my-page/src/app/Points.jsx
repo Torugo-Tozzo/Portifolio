@@ -5,7 +5,6 @@ const Points = () => {
   const canvasRef = useRef();
   const mouseX = useRef(0);
   const mouseY = useRef(0);
-  const scrollY = useRef(window.scrollY); 
 
   useEffect(() => {
     let width = window.innerWidth;
@@ -55,20 +54,14 @@ const Points = () => {
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
     };
-    //?
 
     const handleMouseMove = (event) => {
       mouseX.current = (event.clientX / width) * 2 - 1;
       mouseY.current = -(event.clientY / height) * 2 + 1;
     };
 
-    const handleScroll = () => {
-      scrollY.current = window.scrollY;
-    };
-
     window.addEventListener("resize", handleResize);
     window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("scroll", handleScroll);
 
     function animate() {
       requestAnimationFrame(animate);
@@ -86,7 +79,6 @@ const Points = () => {
     return () => {
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
