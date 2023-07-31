@@ -43,11 +43,12 @@ const WeatherCard = () => {
   const humidity = weatherData.main?.humidity;
 
   return (
-    <div className="bg-white dark:bg-gray-800 w-full sm:w-80 h-80 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-110 flex flex-col items-center justify-center">
+    <div className="my-4">
       {temperature && (
         <>
           <h3 className="dark:text-white text-2xl font-bold">{weatherData.name}</h3>
           <img
+            className="mx-auto"
             src={`http://openweathermap.org/img/w/${weatherIcon}.png`}
             alt="Weather Icon"
           />
