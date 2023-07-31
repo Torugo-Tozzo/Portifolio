@@ -15,7 +15,7 @@ const ContatoSection = () => {
   const email = "victorhugo.tozzo@gmail.com"; // Substitua pelo seu endereço de e-mail
 
   return (
-    <div className="bg-white dark:bg-gray-800 w-max p-2 rounded-lg text-center shadow-md transition-transform duration-300 transform hover:scale-150">
+    <div className="bg-white dark:bg-gray-800 w-max p-2 rounded-lg text-center shadow-md transition-transform duration-300 transform hover:scale-110">
       <div className="flex items-center justify-center">
         <p className="text-gray-600 dark:text-white text-lg mb-0 mx-4">{email}</p>
         <CopyToClipboard text={email} onCopy={handleCopyClick}>

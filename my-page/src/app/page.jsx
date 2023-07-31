@@ -5,7 +5,7 @@ import Maps from "./Maps";
 import Points from "./Points";
 import CustomCursor from "./CustomCursor";
 import Card from "./Card";
-import WeatherCard from "./WeatherCard";
+import AboutSection from "./SobreMim";
 import ContatoSection from "./ContatoCard";
 import { FiGithub, FiLinkedin, FiInstagram } from "react-icons/fi";
 import { BiLogoGmail } from "react-icons/bi";
@@ -53,38 +53,7 @@ export default function Home() {
           <h2 className="dark:text-white text-2xl font-bold text-gray-800 my-3">
             Sobre mim
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 flex justify-center alling-center">
-            <div className="bg-white dark:bg-gray-800 w-full w-80 h-80 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-110">
-              <figure>
-                <img
-                  className="w-60 h-60 mt-8 border-solid border-4 border-gray-100 rounded-full mx-auto object-cover transition-transform duration-300 transform hover:scale-110"
-                  alt="Minha foto"
-                  src="/Eu.png"
-                />
-                <figcaption className="dark:text-white my-2">👆 EU.</figcaption>
-              </figure>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 w-full sm:w-80 h-80 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-110">
-              <p className="m-6 dark:text-white">
-                Victor Hugo Tozzo Filho,
-                <br /> estudante no curso de Ciência da Computação na
-                Universidade Federal de Alfenas (UNIFAL), com previsão de
-                formatura no final de 2024.
-                <br />
-                <br /> Atualmente procurando uma oportunidade de estágio na área
-                de desenvolvimento web para concluir a graduação.
-              </p>
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 w-full sm:w-80 h-80 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-110">
-              <Maps />
-            </div>
-
-            <div className="bg-white dark:bg-gray-800 w-full sm:w-80 h-80 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-110">
-              <WeatherCard />
-            </div>
-          </div>
+          <AboutSection />
         </section>
 
         <section id="projetos-section" className="my-10 text-center">
@@ -103,7 +72,7 @@ export default function Home() {
             Meu contato
           </h1>
           <div className="flex  justify-center mt-8">
-            <ContatoSection className="" />
+            <ContatoSection />
           </div>
         </section>
 
@@ -140,7 +109,7 @@ export default function Home() {
               </a>
               <a
                 href="mailto:victorhugo.tozzo@gmail.com"
-                className="dark:text-white hover:text-red-500 mx-0 transition-transform duration-300 transform hover:scale-110"
+                className="dark:text-white hover:text-red-500 mx-0 transition-transform duration-300 transform hover:scale-110 "
               >
                 <BiLogoGmail size={32} className="mr-2 dark:text-white" />
               </a>
