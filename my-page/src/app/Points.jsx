@@ -88,9 +88,9 @@ const Points = () => {
       id="background" // Set the ID for the canvas
       style={{
         position: "relative",
-        width: "100vh",
-        height: "78vh",
-        top: "-3.5rem",
+        
+        
+        
         zIndex: 1,
       }}
     />
