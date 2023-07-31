@@ -6,7 +6,7 @@ const WeatherCard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const WeatherKey = process.env.WEATHER_KEY;//aqui a key
+    const WeatherKey = "80fa5a6fb0df495e2cfd7f04431e4170";//aqui a key
     const city = "Alfenas";
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${WeatherKey}&units=metric`;
 
