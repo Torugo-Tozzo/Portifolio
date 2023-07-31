@@ -55,6 +55,7 @@ const Points = () => {
       camera.updateProjectionMatrix();
       renderer.setSize(width, height);
     };
+    //?
 
     const handleMouseMove = (event) => {
       mouseX.current = (event.clientX / width) * 2 - 1;
