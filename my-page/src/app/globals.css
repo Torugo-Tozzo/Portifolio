@@ -28,4 +28,10 @@
   color: white;
 }
 
-
+@media (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  body {
+    /* Example: decrease font size */
+    font-size: 14px;
+  }
+}
