@@ -47,6 +47,9 @@ const Navbar = () => {
           <div className="flex items-center">
             <DarkButton />
           </div>
+          <h1 className="dark:text-white text-4xl font-bold text-gray-800 mb-0">
+            Meu Portfólio
+          </h1>
           <div className="relative" ref={menuRef}>
             <button
               type="button"

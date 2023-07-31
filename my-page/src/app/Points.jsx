@@ -7,8 +7,8 @@ const Points = () => {
   const mouseY = useRef(0);
 
   useEffect(() => {
-    let width = window.innerWidth;
-    let height = window.innerHeight;
+    let width = window.innerWidth ;
+    let height = window.innerHeight * 0.75;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(80, width / height, 0.1, 1000);

@@ -42,9 +42,6 @@ export default function Home() {
         <CustomCursor />
         <header className="text-center">
           <Navbar />
-          <h1 className="dark:text-white text-4xl font-bold text-gray-800 mb-0">
-            Meu Portfólio
-          </h1>
           <div className="">
             <Points />
           </div>
