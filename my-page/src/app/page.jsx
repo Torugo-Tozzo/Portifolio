@@ -45,7 +45,7 @@ export default function Home() {
           <h1 className="dark:text-white text-4xl font-bold text-gray-800 mb-0">
             Meu Portfólio
           </h1>
-          <Points />
+          
           <BsChevronCompactDown className="animate-bounce w-6 h-6 mb-4 mx-auto dark:text-white" />
         </header>
 
