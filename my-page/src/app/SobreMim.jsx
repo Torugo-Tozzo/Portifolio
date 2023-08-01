@@ -26,6 +26,8 @@ const AboutSection = () => {
     dots: true,
     infinite: true,
     speed: 500,
+    autoplay: true,
+    autoplaySpeed: 3000,
     responsive: [
       {
         breakpoint: 798, // Tela pequena (tablets)
