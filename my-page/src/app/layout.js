@@ -6,7 +6,8 @@ const inter = Inter({ subsets: ["latin"] });
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
-      {/* Use Head to add meta tags */}
+      <title>Torugo-Tozzo</title>
+      <link rel="icon" href="./favicon.ico" />
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>

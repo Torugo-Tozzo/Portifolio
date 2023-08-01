@@ -57,7 +57,7 @@ export default function Home() {
 
         <section id="projetos-section" className="my-10 text-center">
           <h2 className="dark:text-white text-2xl font-bold text-gray-800 mb-4">
-            Alguns projetos
+            Alguns projetos 
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {projetos.map((projeto, index) => (
