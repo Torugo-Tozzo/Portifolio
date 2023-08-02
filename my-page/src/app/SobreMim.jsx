@@ -4,6 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Maps from "./Maps";
 import WeatherCard from "./WeatherCard";
+import { SiUdemy, SiCoursera, SiFreecodecamp } from "react-icons/si";
 import {
   BiLogoJquery,
   BiLogoTux,
@@ -61,7 +62,7 @@ const AboutSection = () => {
 
       <div className="dark:text-white mx-3 my-4 bg-white dark:bg-gray-800 w-full sm:w-80 h-80 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-110 flex items-center justify-center">
         <h3 className="dark:text-white text-2xl font-bold text-gray-800 my-3">
-          Linguagens que domino:
+          Áreas que domino:
         </h3>
         <div className="flex my-4 items-center justify-center">
           <BiLogoHtml5 className="text-6xl mr-4" />
@@ -105,14 +106,31 @@ const AboutSection = () => {
         <WeatherCard />
       </div>
 
-      <div className="my-4 mx-1 bg-white dark:bg-gray-800 w-full sm:w-80 h-80 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-110 flex items-center justify-center">
-      <h3 className="dark:text-white text-2xl font-bold text-gray-800 my-3">
-          Cursos e certificados:
-        </h3>
-        Coursera,Udemy,JavaScript Algorthms Data Structures
-        <br />
-        links de cada um
-      </div>
+      <div className="my-4 mx-1 bg-white dark:bg-gray-800 w-full sm:w-80 h-80 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-110 flex flex-col items-center justify-center text-center">
+  <div className="my-3">
+    <SiCoursera size={30} className="mx-auto mb-2 text-size-8 text-blue-700" />
+    <h3 className="dark:text-white text-1xl font-bold text-gray-800">
+      Certificado Profissional Google Data Analytics (PT)
+    </h3>
+    <a href="https://coursera.org/verify/QQVEGVSEX3MZ"><p className="text-blue-500">link do cerficado Coursera</p></a>
+  </div>
+
+  <div className="mb-3">
+    <SiUdemy size={30} className="mx-auto mb-2 text-purple-700" />
+    <h3 className="dark:text-white text-1xl font-bold text-gray-800">
+      The Complete 2023 Web Development Bootcamp
+    </h3>
+    <a href="https://www.udemy.com/certificate/UC-cbc23c3d-01f5-4526-96ad-ce10b24a6440/"><p className="text-blue-500">link do cerficado Udemy</p></a>
+  </div>
+
+  <div className="mb-3">
+    <SiFreecodecamp size={30} className="mx-auto mb-2 dark:text-white" />
+    <h3 className="dark:text-white text-1xl font-bold text-gray-800">
+      JavaScript Algorithms Data Structures
+    </h3>
+    <a href="https://freecodecamp.org/certification/Torugo-Tozzo/javascript-algorithms-and-data-structures"><p className="text-blue-500">link do cerficado FreeCodeCamp</p></a>
+  </div>
+</div>
 
     </Slider>
   );

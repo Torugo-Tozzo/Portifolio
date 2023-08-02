@@ -45,7 +45,7 @@ const WeatherCard = () => {
   const humidity = weatherData.main?.humidity;
 
   return (
-    <div className="my-4">
+    <div className="my-8">
       {temperature && (
         <>
           <h3 className="dark:text-white text-2xl font-bold">
@@ -61,6 +61,7 @@ const WeatherCard = () => {
           </p>
           <p className="dark:text-white text-2xl font-bold">{temperature}°C</p>
           <p className="dark:text-white">Humidity: {humidity}%</p>
+          <br />
           <p className="dark:text-white">Powered by OpenWeatherAPI</p>
         </>
       )}
