@@ -96,7 +96,7 @@ const AboutSection = () => {
         </p>
       </div>
 
-      <div className="my-4 mx-6 bg-white dark:bg-gray-800 w-full sm:w-80 h-80 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-110">
+      <div className="my-4 mx-5 bg-white dark:bg-gray-800 w-full sm:w-80 h-80 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-110">
         <Maps />
         <p className="mt-2 dark:text-white">👆 Onde estudo</p>
       </div>
@@ -104,6 +104,16 @@ const AboutSection = () => {
       <div className="my-4 bg-white dark:bg-gray-800 w-full sm:w-80 h-80 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-110 flex items-center justify-center">
         <WeatherCard />
       </div>
+
+      <div className="my-4 mx-1 bg-white dark:bg-gray-800 w-full sm:w-80 h-80 rounded-lg shadow-md transition-transform duration-300 transform hover:scale-110 flex items-center justify-center">
+      <h3 className="dark:text-white text-2xl font-bold text-gray-800 my-3">
+          Cursos e certificados:
+        </h3>
+        Coursera,Udemy,JavaScript Algorthms Data Structures
+        <br />
+        links de cada um
+      </div>
+
     </Slider>
   );
 };
