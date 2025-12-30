@@ -1,0 +1,28 @@
+:root{--bg:#0f172a;--fg:#e6eef8}
+
+body{
+	margin:0;
+	font-family: 'Inter', system-ui, Arial, sans-serif;
+	background:var(--bg);
+	color:var(--fg);
+}
+
+.container{padding:2rem;max-width:900px;margin:0 auto}
+.header{padding:1rem 2rem;border-bottom:1px solid rgba(255,255,255,0.04)}
+.nav{display:flex;gap:1rem;list-style:none;padding:0;margin:0}
+
+/* Glass effect used by header when scrolled */
+.glass-effect {
+	background: rgba(255, 255, 255, 0.7);
+	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
+}
+.dark .glass-effect {
+	background: rgba(15, 23, 42, 0.7);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+.dark ::-webkit-scrollbar-thumb { background: #475569; }
